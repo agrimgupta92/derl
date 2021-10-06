@@ -1,0 +1,26 @@
+OUT_DIR: './output/mvt'
+RNG_SEED: 1409
+ENV_NAME: 'Unimal-v0'
+EVO:
+  IS_EVO: true
+  SELECTION_CRITERIA: ["__reward__manipulation"]
+  SELECTION_CRITERIA_OBJ: [-1]
+ENV:
+  MODULES: ["Agent", "Terrain", "Objects"]
+  TASK: "manipulation"
+  KEYS_TO_KEEP: ["proprioceptive", "goal", "obj", "hfield"]
+  FORWARD_REWARD_WEIGHT: 0.0
+TERRAIN:
+  SIZE: [30, 20, 1]
+  START_FLAT: 3
+  CENTER_FLAT: 0
+  TYPES: ["curve_slope", "steps", "rugged_square"]
+  BOUNDARY_WALLS: true
+OBJECT:
+  PLACEMENT_BUFFER_LEN: 3
+  PLACEMENT_BUFFER_WIDTH: 5
+  SUCCESS_MARGIN: 0.75
+  BOX_SIDE: 0.20
+  FORWARD_PLACEMENT_DIST: [15, 25]
+NUM_NODES: 16
+NODE_ID: 0

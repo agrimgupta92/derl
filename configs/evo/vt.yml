@@ -1,0 +1,19 @@
+OUT_DIR: './output/vt'
+RNG_SEED: 1409
+ENV_NAME: 'Unimal-v0'
+EVO:
+  IS_EVO: true
+  SELECTION_CRITERIA: ["__reward__forward"]
+  SELECTION_CRITERIA_OBJ: [-1]
+ENV:
+  MODULES: ["Agent", "Terrain"]
+  TASK: "locomotion"
+  KEYS_TO_KEEP: ["proprioceptive", "hfield"]
+TERRAIN:
+  SIZE: [50, 50, 1]
+  START_FLAT: 3
+  CENTER_FLAT: 0
+  TYPES: ["curve_slope", "steps", "rugged_square"]
+  BOUNDARY_WALLS: true
+NUM_NODES: 16
+NODE_ID: 0

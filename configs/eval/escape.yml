@@ -1,0 +1,11 @@
+ENV_NAME: 'Unimal-v0'
+OUT_DIR: './output'
+ENV:
+  MODULES: ["Agent", "Bowl"]
+  WALKER: "./derl/envs/assets/unimal_ant.xml"
+  TASK: "escape_bowl"
+  KEYS_TO_KEEP: ["proprioceptive", "hfield"]
+  OBS_TYPES: ["position", "velocity", "imu_vel", "touch", "extremities"]
+TERRAIN:
+  SIZE: [50, 50, 1]
+  BOWL_MAX_Z: 1.3

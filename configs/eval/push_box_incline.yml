@@ -1,0 +1,21 @@
+ENV_NAME: 'Unimal-v0'
+OUT_DIR: './output'
+ENV:
+  MODULES: ["Agent", "Terrain", "Objects"]
+  WALKER: "./derl/envs/assets/unimal_pv1.xml"
+  STAND_HEIGHT_RATIO: 0.2
+  TASK: "push_box_incline"
+  KEYS_TO_KEEP: ["proprioceptive", "goal", "obj"]
+TERRAIN:
+  SIZE: [40, 20, 1]
+  START_FLAT: 40
+  CENTER_FLAT: 0
+  TYPES: ["curve_slope"]
+  BOUNDARY_WALLS: False
+  INCLINE_ANGLE: -10
+OBJECT:
+  BOX_SIDE: 0.20
+  TYPE: "box"
+  BOX_POS: [-35, 0]
+  GOAL_POS: [35, 0]
+  BOX_MASS: 2.0

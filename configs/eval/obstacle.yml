@@ -1,0 +1,18 @@
+ENV_NAME: 'Unimal-v0'
+OUT_DIR: './output'
+ENV:
+  MODULES: ["Agent", "Terrain", "Objects"]
+  WALKER: "./derl/envs/assets/unimal_ant.xml"
+  TASK: "obstacle"
+  KEYS_TO_KEEP: ["proprioceptive", "hfield"]
+  OBS_TYPES": ["position", "velocity", "imu_vel", "touch", "extremities"]
+TERRAIN:
+  SIZE: [75, 30, 1]
+  START_FLAT: 3
+  FLAT_LENGTH_RANGE: [75, 75, 1]
+OBJECT:
+  NUM_OBSTACLES: 50
+  OBSTACLE_LEN_RANGE: [0.5, 3, 0.5]
+  OBSTACLE_WIDTH_RANGE: [0.5, 3, 0.5]
+  PLACEMENT_BUFFER_LEN: 5
+  PLACEMENT_BUFFER_WIDTH: 0

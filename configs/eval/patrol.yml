@@ -1,0 +1,11 @@
+ENV_NAME: 'Unimal-v0'
+OUT_DIR: './output'
+ENV:
+  MODULES: ["Agent", "Floor", "PatrolGoals"]
+  WALKER: "./derl/envs/assets/unimal_ant.xml"
+  FORWARD_REWARD_WEIGHT: 0.0
+  TASK: "patrol"
+  KEYS_TO_KEEP: ["proprioceptive", "goal"]
+TERRAIN:
+  SIZE: [30, 30, 1]
+  PATROL_HALF_LEN: 5.0

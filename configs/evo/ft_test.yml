@@ -1,0 +1,28 @@
+OUT_DIR: './output/ft_test'
+RNG_SEED: 1409
+ENV_NAME: 'Unimal-v0'
+EVO:
+  IS_EVO: true
+  SELECTION_CRITERIA: ["__reward__forward"]
+  SELECTION_CRITERIA_OBJ: [-1]
+  NUM_PROCESSES: 4
+  INIT_POPULATION_SIZE: 4
+  SEARCH_SPACE_SIZE: 8
+PPO:
+  NUM_ENVS: 16
+  TIMESTEPS: 256
+  MAX_STATE_ACTION_PAIRS: 1e4
+  VIDEO_LENGTH: 10
+ENV:
+  MODULES: ["Agent", "Terrain"]
+  TASK: "locomotion"
+  KEYS_TO_KEEP: ["proprioceptive"]
+  OBS_TYPES: ["position", "velocity", "imu_vel", "touch", "extremities"]
+TERRAIN:
+  SIZE: [75, 75, 1]
+  START_FLAT: 3
+  CENTER_FLAT: 0
+  TYPES: ["curve_slope"]
+  FLAT_LENGTH_RANGE: [75, 75, 1]
+  BOUNDARY_WALLS: true
+NODE_ID: 0

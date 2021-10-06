@@ -1,0 +1,51 @@
+<agent model="dm_walker">
+  <body name="torso/0" pos="0 0 1.3">
+    <camera name="side" pos="0 -15 10" xyaxes="1 0 0 0 1 2" mode="trackcom"/>
+    <camera name="back" pos="-2 0 .5" xyaxes="0 -1 0 1 0 3" mode="trackcom"/>
+    <joint name="rootx" axis="1 0 0" type="slide" limited="false" armature="0" damping="0"/>
+    <joint name="rootz" axis="0 0 1" type="slide" limited="false" armature="0" damping="0"/>
+    <joint name="rooty" axis="0 1 0" type="hinge" limited="false" armature="0" damping="0"/>
+    <site name="root" class="imu_vel"/>
+    <geom name="torso/0" size="0.07 0.3"/>
+    <body name="limb/0/right_thigh" pos="0 -.05 -0.3">
+      <joint axis="0 -1 0" name="limb/0/right_hip" range="-20 100" class="walker_joint"/>
+      <geom name="limb/0/right_thigh" pos="0 0 -0.225" size="0.05 0.225"/>
+      <body name="limb/1/right_leg" pos="0 0 -0.7">
+        <joint axis="0 -1 0" name="limb/1/right_knee" pos="0 0 0.25" range="-150 0" class="walker_joint"/>
+        <geom name="limb/1/right_leg" size="0.04 0.25"/>
+        <body name="limb/2/right_foot" pos="0.06 0 -0.25">
+          <joint axis="0 -1 0" name="limb/2/right_ankle" pos="-0.06 0 0" range="-45 45" class="walker_joint"/>
+          <geom name="limb/2/right_foot" zaxis="1 0 0" size="0.05 0.1"/>
+        </body>
+      </body>
+    </body>
+    <body name="limb/3/left_thigh" pos="0 .05 -0.3" >
+      <joint axis="0 -1 0" name="limb/3/left_hip" range="-20 100" class="walker_joint"/>
+      <geom name="limb/3/left_thigh" pos="0 0 -0.225" size="0.05 0.225"/>
+      <body name="limb/4/left_leg" pos="0 0 -0.7">
+        <joint axis="0 -1 0" name="limb/4/left_knee" pos="0 0 0.25" range="-150 0" class="walker_joint"/>
+        <geom name="limb/4/left_leg" size="0.04 0.25"/>
+        <body name="limb/5/left_foot" pos="0.06 0 -0.25">
+          <joint axis="0 -1 0" name="limb/5/left_ankle" pos="-0.06 0 0" range="-45 45" class="walker_joint"/>
+          <geom name="limb/5/left_foot" zaxis="1 0 0" size="0.05 0.1"/>
+        </body>
+      </body>
+    </body>
+  </body>
+
+  <actuator>
+    <motor name="right_hip" joint="right_hip" gear="100"/>
+    <motor name="right_knee" joint="right_knee" gear="50"/>
+    <motor name="right_ankle" joint="right_ankle" gear="20"/>
+    <motor name="left_hip" joint="left_hip" gear="100"/>
+    <motor name="left_knee" joint="left_knee" gear="50"/>
+    <motor name="left_ankle" joint="left_ankle" gear="20"/>
+  </actuator>
+
+  <sensor>
+    <accelerometer name="torso_accel"    site="root"/>
+    <gyro name="torso_gyro"              site="root"/>
+    <velocimeter name="torso_vel"        site="root"/>
+  </sensor>
+</agent>
+

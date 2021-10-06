@@ -1,0 +1,21 @@
+OUT_DIR: './output/ft'
+RNG_SEED: 1409
+ENV_NAME: 'Unimal-v0'
+EVO:
+  IS_EVO: true
+  SELECTION_CRITERIA: ["__reward__forward"]
+  SELECTION_CRITERIA_OBJ: [-1]
+ENV:
+  MODULES: ["Agent", "Terrain"]
+  TASK: "locomotion"
+  KEYS_TO_KEEP: ["proprioceptive"]
+  OBS_TYPES: ["position", "velocity", "imu_vel", "touch", "extremities"]
+TERRAIN:
+  SIZE: [75, 75, 1]
+  START_FLAT: 3
+  CENTER_FLAT: 0
+  TYPES: ["curve_slope"]
+  FLAT_LENGTH_RANGE: [75, 75, 1]
+  BOUNDARY_WALLS: true
+NUM_NODES: 16
+NODE_ID: 0

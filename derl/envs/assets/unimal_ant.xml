@@ -1,0 +1,61 @@
+<agent model="unimal_ant">
+  <worldbody>
+    <body name="torso/0" pos="0 0 0.42">
+      <joint name="root" pos="0 0 0" type="free" class="free"/>
+      <site name="root" class="imu_vel"/>
+      <geom name="torso/0" type="sphere" size="0.22"/>
+      <camera name="side" pos="0 -7 2" xyaxes="1 0 0 0 1 2" mode="trackcom"/>
+      <site name="torso/0" pos="0 0 0" class="growth_site"/>
+      <site name="torso/horizontal/0" pos="-0.22 0 0" class="torso_growth_site"/>
+      <site name="torso/btm_pos/0" pos="0 0 -0.22" class="btm_pos_site"/>
+      <body name="limb/0" pos="0.0 0.0 0.0">
+        <joint name="limby/0" type="hinge" class="normal_joint" range="-90 90" pos="-0.16 0.16 0.0" axis="0 -1 0"/>
+        <joint name="limbz/0" type="hinge" class="normal_joint" range="-90 90" pos="-0.16 0.16 0.0" axis="0 0 -1"/>
+        <geom name="limb/0" type="capsule" fromto="-0.23 0.23 0.0 -0.65 0.65 0.0" size="0.1"/>
+        <site name="limb/mid/0" pos="-0.44 0.44 0.0" class="mirror_growth_site"/>
+        <site name="limb/btm/0" pos="-0.65 0.65 0.0" class="mirror_growth_site"/>
+        <site name="limb/btm_pos/0" pos="-0.65 0.65 0.0" class="btm_pos_site"/>
+      </body>
+      <body name="limb/1" pos="0.0 0.0 0.0">
+        <joint name="limby/1" type="hinge" class="normal_joint" range="-90 90" pos="-0.16 -0.16 0.0" axis="0 -1 0"/>
+        <joint name="limbz/1" type="hinge" class="normal_joint" range="-90 90" pos="-0.16 -0.16 0.0" axis="0 0 -1"/>
+        <geom name="limb/1" type="capsule" fromto="-0.23 -0.23 0.0 -0.65 -0.65 0.0" size="0.1"/>
+        <site name="limb/mid/1" pos="-0.44 -0.44 0.0" class="mirror_growth_site"/>
+        <site name="limb/btm/1" pos="-0.65 -0.65 0.0" class="mirror_growth_site"/>
+        <site name="limb/btm_pos/1" pos="-0.65 -0.65 0.0" class="btm_pos_site"/>
+      </body>
+      <body name="limb/2" pos="0.0 0.0 0.0">
+        <joint name="limby/2" type="hinge" class="normal_joint" range="-90 90" pos="0.16 0.16 0.0" axis="0 -1 0"/>
+        <joint name="limbz/2" type="hinge" class="normal_joint" range="-90 90" pos="0.16 0.16 0.0" axis="0 0 -1"/>
+        <geom name="limb/2" type="capsule" fromto="0.23 0.23 0.0 0.65 0.65 0.0" size="0.1"/>
+        <site name="limb/mid/2" pos="0.44 0.44 0.0" class="mirror_growth_site"/>
+        <site name="limb/btm/2" pos="0.65 0.65 0.0" class="mirror_growth_site"/>
+        <site name="limb/btm_pos/2" pos="0.65 0.65 0.0" class="btm_pos_site"/>
+      </body>
+      <body name="limb/3" pos="0.0 0.0 0.0">
+        <joint name="limby/3" type="hinge" class="normal_joint" range="-90 90" pos="0.16 -0.16 0.0" axis="0 -1 0"/>
+        <joint name="limbz/3" type="hinge" class="normal_joint" range="-90 90" pos="0.16 -0.16 0.0" axis="0 0 -1"/>
+        <geom name="limb/3" type="capsule" fromto="0.23 -0.23 0.0 0.65 -0.65 0.0" size="0.1"/>
+        <site name="limb/mid/3" pos="0.44 -0.44 0.0" class="mirror_growth_site"/>
+        <site name="limb/btm/3" pos="0.65 -0.65 0.0" class="mirror_growth_site"/>
+        <site name="limb/btm_pos/3" pos="0.65 -0.65 0.0" class="btm_pos_site"/>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor joint="limby/0" gear="200" name="limby/0"/>
+    <motor joint="limbz/0" gear="200" name="limbz/0"/>
+    <motor joint="limby/1" gear="200" name="limby/1"/>
+    <motor joint="limbz/1" gear="200" name="limbz/1"/>
+    <motor joint="limby/2" gear="200" name="limby/2"/>
+    <motor joint="limbz/2" gear="200" name="limbz/2"/>
+    <motor joint="limby/3" gear="200" name="limby/3"/>
+    <motor joint="limbz/3" gear="200" name="limbz/3"/>
+  </actuator>
+
+  <sensor>
+    <accelerometer name="torso_accel"    site="root"/>
+    <gyro name="torso_gyro"              site="root"/>
+    <velocimeter name="torso_vel"        site="root"/>
+  </sensor>
+</agent>

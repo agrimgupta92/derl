@@ -1,0 +1,105 @@
+<!-- Universal Animal Template: unimal -->
+<mujoco model="unimal">
+	<compiler angle="degree" />
+	<size njmax="2000" nconmax="500"/>
+	<option timestep=".005">
+		<flag filterparent="disable" />
+	</option>
+	<!-- Common defaults to make search space tractable -->
+	<default>
+		<!-- Define motor defaults -->
+		<motor ctrlrange="-1 1" ctrllimited="true" />
+		<!-- Define joint defaults -->
+		<default class="normal_joint">
+			<joint type="hinge" damping="1" stiffness="1" armature="1" limited="true" range="-120 120" solimplimit="0 0.99 0.01" />
+		</default>
+		<default class="walker_joint">
+			<joint type="hinge" damping="0.2" stiffness="1" armature=".01" limited="true" range="-120 120" solimplimit="0 0.99 0.01" />
+		</default>
+		<default class="stiff_joint">
+			<joint type="hinge" damping="5" stiffness="10" armature=".01" limited="true" solimplimit="0 0.99 0.01" />
+		</default>
+		<default class="free">
+			<joint limited="false" damping="0" armature="0" stiffness="0" />
+		</default>
+		<default class="growth_site">
+			<site size="1e-6 1e-6 1e-6" />
+		</default>
+		<default class="torso_growth_site">
+			<site size="1e-6 1e-6 1e-6" />
+		</default>
+		<default class="mirror_growth_site">
+			<site size="1e-6 1e-6 1e-6" />
+		</default>
+		<default class="btm_pos_site">
+			<site size="1e-6 1e-6 1e-6" />
+		</default>
+		<default class="box_face_site">
+			<site size="1e-6 1e-6 1e-6"/>
+		</default>
+		<default class="imu_vel">
+			<site type="box" size="0.05" rgba="1 0 0 0" />
+		</default>
+		<default class="touch_site">
+			<site group="3" rgba="0 0 1 .3" />
+		</default>
+		<default class="food_site">
+			<site material="food" size="0.15"/>
+		</default>
+		<!-- Define geom defaults -->
+		<geom type="capsule" condim="3" friction="0.7 0.1 0.1" material="self" />
+	</default>
+	<worldbody>
+		<light diffuse="1 1 1" directional="true" exponent="1" pos="0 0 8" specular="0.1 0.1 0.1" dir="0 0 -1"/>
+
+		<!-- <geom name="floor" type="plane" pos="0 0 0" size="50 50 1" material="grid"/> -->
+		<!-- Programatically generated xml goes here -->
+	</worldbody>
+	<actuator></actuator>
+	<sensor></sensor>
+	<!-- Add hfield assets -->
+	<asset></asset>
+	<!-- List of contacts to exclude -->
+	<contact></contact>
+	<!-- Define material, texture etc -->
+	<asset>
+		<material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance="0.1" />
+		<material name="hfield" texture="hfield" texrepeat="1 1" texuniform="true" reflectance="0.1" />
+		<material name="wall" texture="wall" texrepeat="1 1" texuniform="true" reflectance=".5" />
+		<material name="platform" texture="platform" texrepeat="1 1" texuniform="true" reflectance=".5" />
+		<material name="boundary" texture="boundary" texrepeat="1 1" texuniform="true" reflectance=".5" />
+		<material name="jump" texture="jump" texrepeat="1 1" texuniform="true" reflectance=".5" />
+		<material name="goal" rgba="1 0 0 1" />
+		<material name="food" rgba="0 0 1 1" emission="1"/>
+		<material name="init_position" rgba="0 1 0 0.7" />
+		<material name="self" rgba=".7 .5 .3 1" />
+		<material name="self_invisible" rgba=".7 .5 .3 0" />
+		<material name="self_default" rgba=".7 .5 .3 1" />
+		<material name="self_highlight" rgba="0 .5 .3 1" />
+		<material name="effector" rgba=".7 .4 .2 1" />
+		<material name="effector_default" rgba=".7 .4 .2 1" />
+		<material name="effector_highlight" rgba="0 .5 .3 1" />
+		<material name="decoration" rgba=".3 .5 .7 1" />
+		<material name="eye" rgba="0 .2 1 1" />
+		<material name="target" rgba=".6 .3 .3 1" />
+		<material name="target_default" rgba=".6 .3 .3 1" />
+		<material name="target_highlight" rgba=".6 .3 .3 .4" />
+		<material name="site" rgba=".5 .5 .5 .3" />
+		<material name="ball" texture="ball" />
+	</asset>
+	<asset>
+		<texture name="grid" type="2d" builtin="checker" rgb1="0.4 0.4 0.4" rgb2="0.4 0.4 0.4" width="300" height="300" mark="edge" markrgb="0.2 0.2 0.2"/>
+		<texture name="hfield" type="2d" builtin="checker" rgb1="0.4 0.4 0.4" rgb2="0.4 0.4 0.4" width="300" height="300" mark="edge" markrgb="0.2 0.2 0.2"/>
+		<texture name="wall" type="2d" builtin="flat" rgb1="0.9 0.7 0" rgb2="0.9 0.7 0" width="300" height="300" />
+		<texture name="platform" type="2d" builtin="flat" rgb1="0.3 0 0.8" rgb2="0.3 0 0.8" width="300" height="300" />
+		<texture name="boundary" type="2d" builtin="flat" rgb1="0.3 0.3 0.3" rgb2="0.3 0.3 0.3" width="300" height="300" />
+		<texture name="jump" type="2d" builtin="flat" rgb1="0.3 0.3 0.3" rgb2="0.3 0.3 0.3" width="300" height="300" />
+		<texture name="skybox" type="skybox" builtin="gradient" rgb1="1 1 1" rgb2="0.6 0.6 0.6" width="800" height="800" />
+		<texture name="ball" builtin="checker" mark="cross" width="151" height="151" rgb1="0.1 0.1 0.1" rgb2="0.9 0.9 0.9" markrgb="1 1 1"/>
+	</asset>
+	<visual>
+		<headlight ambient="0.6 0.6 0.6" diffuse="0.3 0.3 0.3" specular="0 0 0"/>
+		<map znear=".01" shadowclip="0.5" />
+		<quality shadowsize="16384" />
+	</visual>
+</mujoco>
