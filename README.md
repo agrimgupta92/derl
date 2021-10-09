@@ -2,7 +2,7 @@
 
 This is the code for the paper
 
-**<a href="https://arxiv.org/abs/2102.02202">Embodied Intelligence via Learning and Evolution</a>**
+**<a href="https://www.nature.com/articles/s41467-021-25874-z">Embodied Intelligence via Learning and Evolution</a>**
 <br>
 <a href="http://web.stanford.edu/~agrim/">Agrim Gupta</a>,
 <a href="http://cvgl.stanford.edu/silvio/">Silvio Savarese</a>,
