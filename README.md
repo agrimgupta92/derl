@@ -44,6 +44,23 @@ If you have installed all dependencies in your local machine. You can visualize 
 python tools/terrain_builder.py --cfg configs/evo/mvt.yml
 ```
 
+## Citation
+If you find this code useful, please consider citing:
+
+```text
+@article{gupta2021embodied,
+  title={Embodied intelligence via learning and evolution},
+  author={Gupta, Agrim and Savarese, Silvio and Ganguli, Surya and Fei-Fei, Li},
+  journal={Nature communications},
+  volume={12},
+  number={1},
+  pages={5721},
+  year={2021},
+  publisher={Nature Publishing Group}
+}
+
+```
+
 ## Credit
 
 This codebase would not have been possible without the following amazing open source codebases:
